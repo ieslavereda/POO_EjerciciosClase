@@ -9,5 +9,17 @@ public class Carta {
         this.palo = palo;
         this.numero = numero;
     }
-    
+
+    public String getPalo(){
+        return palo;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    @Override
+    public String toString() {
+        return numero + " " + palo;
+    }
 }

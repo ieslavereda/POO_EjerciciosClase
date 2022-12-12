@@ -7,7 +7,8 @@ public class Main {
         Punto punto1 = new Punto();
         Punto punto2 = new Punto(1,1);
 
-        Rectangulo rectangulo = new Rectangulo(punto1,punto2);
+        Rectangulo rectangulo = new Rectangulo(punto1,2,3);
+        rectangulo.moveUp(1);
 
         System.out.println(rectangulo);
 
