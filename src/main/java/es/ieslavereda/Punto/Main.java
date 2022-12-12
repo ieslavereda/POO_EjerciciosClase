@@ -4,10 +4,12 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Punto punto = new Punto();
-        Punto punto2 = new Punto(3,1);
+        Punto punto1 = new Punto();
+        Punto punto2 = new Punto(1,1);
 
-        System.out.println(punto.getDistance(punto2));
+        Rectangulo rectangulo = new Rectangulo(punto1,punto2);
+
+        System.out.println(rectangulo);
 
     }
 }

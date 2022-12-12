@@ -20,6 +20,13 @@ public class Punto {
         this.y = 0;
     }
 
+    public int getX(){
+        return x;
+    }
+    public int getY(){
+        return y;
+    }
+
     public void moveRight(int distance) {
         this.x += distance;
     }
