@@ -8,8 +8,8 @@ public enum Valor {
     CINCO("5"),
     SEIS("6"),
     SIETE("7"),
-//    OCHO("8"),
-//    NUEVE("9"),
+    OCHO("8"),
+    NUEVE("9"),
     DIEZ("J"),
     ONCE("Q"),
     DOCE("K");

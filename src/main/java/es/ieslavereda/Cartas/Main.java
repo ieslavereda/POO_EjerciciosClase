@@ -4,9 +4,9 @@ package es.ieslavereda.Cartas;
 public class Main {
     public static void main(String[] args) {
 
-        Carta c = new Carta(Valor.DOS,Palo.HEART);
+       Baraja baraja = new Baraja();
 
-        System.out.println(c);
+        System.out.println(baraja);
 
     }
 }

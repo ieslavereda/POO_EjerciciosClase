@@ -1,16 +1,14 @@
 package es.ieslavereda.Cartas;
 
 public class Baraja {
-
-    private static final String[] PALOS = {"O","E","C","B"};
     private Carta[] cartas;
 
     public Baraja(){
-        cartas = new Carta[48];
+        cartas = new Carta[Valor.values().length*Palo.values().length];
         int j=0;
-        for(String palo : PALOS){
-            for(int i=1;i<=12;i++)
-                cartas[j++] = new Carta(palo,i);
+        for(Palo palo : Palo.values()){
+            for(Valor valor : Valor.values())
+                cartas[j++] = new Carta(valor,palo);
         }
     }
 
