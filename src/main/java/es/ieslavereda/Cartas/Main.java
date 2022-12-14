@@ -1,9 +1,12 @@
 package es.ieslavereda.Cartas;
 
+
 public class Main {
     public static void main(String[] args) {
-        Baraja baraja = new Baraja();
 
-        System.out.println(baraja);
+        Carta c = new Carta(Valor.DOS,Palo.HEART);
+
+        System.out.println(c);
+
     }
 }
