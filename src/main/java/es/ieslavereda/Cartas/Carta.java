@@ -11,6 +11,10 @@ public class Carta {
         this.valor = valor;
     }
 
+    public Valor getValor(){
+        return valor;
+    }
+
     @Override
     public String toString() {
         return valor + palo.toString();
