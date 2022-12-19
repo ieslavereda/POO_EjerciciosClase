@@ -9,6 +9,10 @@ public class Jugador {
         mano = new Carta[0];
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
     public void addCard(Carta carta){
         Carta[] aux = new Carta[mano.length+1];
         for(int i=0;i<mano.length;i++)
@@ -23,6 +27,20 @@ public class Jugador {
         for(Carta carta : mano)
             puntuacion += carta.getValor().getPuntuacion()[0];
 
-        return puntuacion;
+        return puntuacion>21 ? -1 : puntuacion;
+    }
+
+    @Override
+    public String toString(){
+
+        String salida = "Nombre: " + nombre+"\n";
+
+        salida+="Cartas: ";
+        for(Carta carta : mano )
+            salida+=carta+" ";
+
+        salida+="\nPuntuacion: " + getPuntuacion();
+
+        return salida;
     }
 }
