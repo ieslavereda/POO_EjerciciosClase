@@ -21,13 +21,30 @@ public class Jugador {
         mano=aux;
     }
 
+    private int getPuntuacionRecursiva(int index,int sum){
+
+        if(sum>21) return -1;
+
+        if(index>=mano.length)
+            return sum;
+
+        if(mano[index].getValor().getPuntuacion().length==1)
+            return getPuntuacionRecursiva(index+1,sum+mano[index].getValor().getPuntuacion()[0]);
+
+        return Math.max(
+                getPuntuacionRecursiva(index+1,sum+mano[index].getValor().getPuntuacion()[0]),
+                getPuntuacionRecursiva(index+1,sum+mano[index].getValor().getPuntuacion()[1])
+        );
+
+    }
     public int getPuntuacion(){
-        int puntuacion = 0;
-
-        for(Carta carta : mano)
-            puntuacion += carta.getValor().getPuntuacion()[0];
-
-        return puntuacion>21 ? -1 : puntuacion;
+        return getPuntuacionRecursiva(0,0);
+//        int puntuacion = 0;
+//
+//        for(Carta carta : mano)
+//            puntuacion += carta.getValor().getPuntuacion()[0];
+//
+//        return puntuacion>21 ? -1 : puntuacion;
     }
 
     @Override

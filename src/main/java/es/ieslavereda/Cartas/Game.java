@@ -20,16 +20,51 @@ public class Game {
             juegaJugador(jugador);
 
 
+        juegaPC();
 
+        mostrarGanadores();
         /*
-        barajar
-        cada jugador pide carta hasta diga basta o se pase
-        juega Pc
-            - Solicita siempre carta mientras no se haya pasado y su puntuacin sea inferior
-               a todos los jugadores
-
         Comprobar por cada jugador si ha ganado o ha perdido.
          */
+
+    }
+
+    private void mostrarGanadores() {
+        for(Jugador jugador : jugadores)
+            if(jugador.getPuntuacion()> pc.getPuntuacion())
+                System.out.println(jugador.getNombre() + " ha ganado");
+            else
+                System.out.println(jugador.getNombre() + " ha perdido");
+    }
+
+    private void juegaPC() {
+
+
+        System.out.println("Le toca jugar a " + pc.getNombre());
+
+        do {
+            pc.addCard(baraja.getDown());
+            System.out.println(pc);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        } while (deboPedirCarta());
+    }
+
+    private boolean deboPedirCarta(){
+
+        if(pc.getPuntuacion()==-1)
+            return false;
+
+        int puntuacionMaxima = 0;
+
+        for(Jugador jugador:jugadores)
+            if(jugador.getPuntuacion()>puntuacionMaxima)
+                puntuacionMaxima= jugador.getPuntuacion();
+
+        return puntuacionMaxima>pc.getPuntuacion()?true:false;
 
     }
 
