@@ -1,7 +1,5 @@
 package es.ieslavereda.Cartas;
 
-import javax.sound.midi.Soundbank;
-
 public class Main {
     public static void main(String[] args) {
 
@@ -15,5 +13,6 @@ public class Main {
 
         game.start();
 
+        System.currentTimeMillis();
     }
 }
