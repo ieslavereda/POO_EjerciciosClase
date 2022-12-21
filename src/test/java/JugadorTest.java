@@ -30,7 +30,7 @@ public class JugadorTest {
         jugador.addCard(new Carta(Valor.DOS,Palo.CLUB));
         jugador.addCard(new Carta(Valor.A,Palo.CLUB));
 
-        assertEquals(jugador.getPuntuacion(),20);
+        assertEquals(20,jugador.getPuntuacion());
     }
 
     @DisplayName("Test para comprobar si se pasa")
@@ -41,7 +41,7 @@ public class JugadorTest {
         jugador.addCard(new Carta(Valor.J,Palo.CLUB));
         jugador.addCard(new Carta(Valor.Q,Palo.CLUB));
 
-        assertEquals(jugador.getPuntuacion(),-1);
+        assertEquals(-1,jugador.getPuntuacion());
     }
 
     @DisplayName("Comprobando 3A, J")
@@ -53,7 +53,7 @@ public class JugadorTest {
         jugador.addCard(new Carta(Valor.A,Palo.CLUB));
         jugador.addCard(new Carta(Valor.A,Palo.CLUB));
 
-        assertEquals(jugador.getPuntuacion(),13);
+        assertEquals(13,jugador.getPuntuacion());
     }
     @DisplayName("Comprobando 2A, J")
     @Test
@@ -63,7 +63,7 @@ public class JugadorTest {
         jugador.addCard(new Carta(Valor.A,Palo.CLUB));
         jugador.addCard(new Carta(Valor.A,Palo.CLUB));
 
-        assertEquals(jugador.getPuntuacion(),12);
+        assertEquals(12,jugador.getPuntuacion());
     }
 
     @DisplayName("Comprobando 4A, 6")
