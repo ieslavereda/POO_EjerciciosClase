@@ -5,7 +5,6 @@ import es.ieslavereda.Cartas.Valor;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @DisplayName("Testeo de obtencion de la puntuacion de un Jugador")
 public class JugadorTest {
