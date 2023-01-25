@@ -35,7 +35,26 @@ public class Lista {
         if(index>=size || index<0)
             return null;
 
+        Integer value = null;
 
+        if(index == 0)
+            cabeza = cabeza.getNext();
+        else{
+            Node aux1 = cabeza;
+            Node aux2 = cabeza.getNext();
+
+            while(index>1){
+                aux1=aux2;
+                aux2=aux2.getNext();
+                index--;
+            }
+            value = aux2.getInfo();
+            aux1.setNext(aux2.getNext());
+
+        }
+
+        size--;
+        return value;
     }
 
 
