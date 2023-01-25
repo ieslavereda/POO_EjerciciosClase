@@ -183,7 +183,7 @@ public class ListaSimplementeEnlazada {
 
         @Override
         public String toString() {
-            return info + ((next!=null)?", "+next.toString():" }");
+            return info + ((next!=null)?", "+next:" }");
         }
     }
 }
