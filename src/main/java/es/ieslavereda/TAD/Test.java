@@ -5,19 +5,16 @@ import java.util.Arrays;
 public class Test {
 
     public static void main(String[] args) {
-        Lista lista = new Lista();
+        ListaSimplementeEnlazada lista = new ListaSimplementeEnlazada();
 
-        lista.addHead(4);
-        lista.addHead(5);
-        lista.addHead(22);
-        lista.addHead(-2);
-        lista.addTail(0);
+        lista.addHead(3);
+        lista.addHead(6);
+        lista.addHead(7);
 
         System.out.println(lista);
-        System.out.println(lista.contains(6));
-        System.out.println(lista.contains(-2));
-
-        System.out.println(Arrays.toString(lista.toArray()));
+        System.out.println(lista.remove(2));
+        System.out.println(lista.remove(0));
+        System.out.println(lista);
     }
 
 }

@@ -88,6 +88,7 @@ public class JugadorTest {
         assertEquals(12, jugador.getPuntuacion());
     }
 
+
     @AfterAll
     static void afterAll() {
         System.out.println("**---   Test finalizado   ---**");
