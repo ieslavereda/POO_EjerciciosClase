@@ -148,10 +148,7 @@ public class ListaSimplementeEnlazada {
     }
     @Override
     public String toString() {
-        return "Lista{" +
-                "size=" + size +
-                ", valores = " + cabeza +
-                '}';
+        return "{ size: "+size +", Values: " +((cabeza==null)?"}":cabeza.toString());
     }
     public static class Node {
 
@@ -186,7 +183,7 @@ public class ListaSimplementeEnlazada {
 
         @Override
         public String toString() {
-            return info + ((next!=null)?" "+next.toString():"");
+            return info + ((next!=null)?", "+next.toString():" }");
         }
     }
 }

@@ -6,7 +6,7 @@ public class Test {
 
     public static void main(String[] args) {
         ListaSimplementeEnlazada lista = new ListaSimplementeEnlazada();
-
+        System.out.println(lista);
         lista.addHead(3);
         lista.addHead(6);
         lista.addHead(7);
