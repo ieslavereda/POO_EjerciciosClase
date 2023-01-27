@@ -96,11 +96,16 @@ public class ListaSimplementeEnlazada {
         boolean modificado = false;
 
         Node aux = lista.cabeza;
-        while (aux!=null){
-            modificado=true;
+        for(int i=0;i<lista.size;i++) {
             addTail(aux.getInfo());
-            aux=aux.getNext();
+            aux = aux.getNext();
+            modificado=true;
         }
+//        while (aux!=null){
+//            modificado=true;
+//            addTail(aux.getInfo());
+//            aux=aux.getNext();
+//        }
 
         return modificado;
     }
