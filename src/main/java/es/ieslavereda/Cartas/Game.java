@@ -7,7 +7,7 @@ public class Game {
     private Jugador pc;
 
     public Game(Jugador... jugadores) {
-        this.baraja = new Baraja();
+        this.baraja = new BarajaMejorada();
         this.pc = new Jugador("PC");
         this.jugadores = jugadores;
     }

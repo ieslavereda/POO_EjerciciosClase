@@ -10,6 +10,20 @@ public class ListaCartas {
     private Node head;
 
 
+    public Carta showFirst(){
+        if(head==null)
+            return null;
+        return head.getInfo();
+    }
+    public Carta getFirst(){
+        Carta c = null;
+        if(head!=null){
+            c=head.info;
+            head = head.next;
+            size--;
+        }
+        return c;
+    }
     public void shuffle(){
         Carta[] cartas = toArray();
         List<Carta> cartaList = Arrays.asList(cartas);
@@ -22,7 +36,15 @@ public class ListaCartas {
             add(c);
     }
     public void add(Carta c){
+        Node node = new Node(c);
 
+        if(head==null) {
+            head = node;
+        }else {
+            node.setNext(head);
+            head=node;
+        }
+        size++;
     }
 
     private void clear() {
@@ -40,6 +62,11 @@ public class ListaCartas {
             i++;
         }
         return aux;
+    }
+
+    @Override
+    public String toString() {
+        return "{ size: "+size +", Values: " +((head==null)?"}":head);
     }
 
     private class Node {
@@ -64,10 +91,7 @@ public class ListaCartas {
 
         @Override
         public String toString() {
-            return "Node{" +
-                    "info=" + info +
-                    ", next=" + next +
-                    '}';
+            return info + ((next!=null)?", "+next:" }");
         }
     }
 
