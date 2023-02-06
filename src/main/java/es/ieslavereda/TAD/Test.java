@@ -24,7 +24,6 @@ public class Test {
         System.out.println(miLista.equals(miLista2));
         System.out.println(Arrays.asList(miLista2.asArray(Carta.class)));
 
-
     }
 
 }
