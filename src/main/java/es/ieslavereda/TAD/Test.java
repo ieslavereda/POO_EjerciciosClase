@@ -24,6 +24,11 @@ public class Test {
         System.out.println(miLista.equals(miLista2));
         System.out.println(Arrays.asList(miLista2.asArray(Carta.class)));
 
+
+        MyList<Carta> myList = new MyList<>();
+        myList.addHead(new Carta(Valor.A, Palo.HEART));
+        myList.addHead(new Carta(Valor.A, Palo.HEART));
+        System.out.println(myList);
     }
 
 }
