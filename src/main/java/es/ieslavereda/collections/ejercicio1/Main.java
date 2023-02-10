@@ -5,6 +5,7 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
+        // Map<Pais,Set<Trabajador>> personal = new HashMap<>();
         Map<Trabajador,Pais> personal = new HashMap<>();
 
         personal.put(new Trabajador("Joaquin",45),new Pais("España"));
