@@ -1,6 +1,18 @@
 package es.ieslavereda.Cartas;
 
+import java.util.Comparator;
+
 public class Carta implements Comparable<Carta>{
+
+    public static Comparator<Carta> comparatorPorPalo = new Comparator<Carta>() {
+        @Override
+        public int compare(Carta o1, Carta o2) {
+            if(o1.getValor()==o2.getValor()){
+                return o1.getPalo().ordinal()-o2.getPalo().ordinal();
+            }else
+                return o1.getValor().ordinal()-o2.getValor().ordinal();
+        }
+    };
 
     private Palo palo;
     private Valor valor;

@@ -34,6 +34,18 @@ public class SetExample {
               return o1.getValor().ordinal()-o2.getValor().ordinal();
         } );
 
+        Set<Carta> otroSetCompar2 = new TreeSet<>(Carta.comparatorPorPalo);
+
+        Set<Carta> otroSetCompar3 = new TreeSet<>(new Comparator<Carta>() {
+            @Override
+            public int compare(Carta o1, Carta o2) {
+                if(o1.getValor()==o2.getValor()){
+                    return o1.getPalo().ordinal()-o2.getPalo().ordinal();
+                }else
+                    return o1.getValor().ordinal()-o2.getValor().ordinal();
+            }
+        });
+
         otroSetCompar.addAll(mySet);
         System.out.println(otroSetCompar);
 
@@ -52,11 +64,11 @@ public class SetExample {
 //        System.out.println("-----");
 //        System.out.println(otroSet);
 //
-//        Set<Carta> ases = mySet.stream()
-//                        .filter(
-//                                (c)->c.getValor()==Valor.A)
-//                        .collect(Collectors.toSet());
-//        System.out.println(ases);
+        Set<Carta> ases = mySet.stream()
+                        .filter(
+                                (c)->c.getValor()==Valor.A)
+                        .collect(Collectors.toSet());
+        System.out.println(ases);
 
     }
 }
