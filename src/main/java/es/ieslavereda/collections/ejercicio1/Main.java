@@ -9,7 +9,7 @@ public class Main {
         Map<Trabajador,Pais> personal = new HashMap<>();
 
         personal.put(new Trabajador("Joaquin",45),new Pais("España"));
-        personal.put(new Trabajador("Joaquin",45),new Pais("España"));
+        personal.put(new Trabajador("Joaquin",43),new Pais("Alemania"));
         personal.put(new Trabajador("Luis",22),new Pais("España"));
         personal.put(new Trabajador("Carlos",40),new Pais("Alemania"));
         personal.put(new Trabajador("Carmen",35),new Pais("Suiza"));
@@ -33,6 +33,25 @@ public class Main {
         System.out.println(t);
 
         // c)
+        // Map<Trabajador,Pais> -> Map<Pais,Set<Trabajador>>
+        //      personal                    aux
+
+        Map<Pais,Set<Trabajador>> aux = new TreeMap<>();
+        Pais pais;
+        for(Trabajador trabajador : personal.keySet()){
+            pais = personal.get(trabajador);
+
+            if(aux.containsKey(pais)){
+                aux.get(pais).add(trabajador);
+            } else {
+                Set<Trabajador> trabajadores = new TreeSet<>(Trabajador.SORT_BY_AGE);
+                trabajadores.add(trabajador);
+                aux.put(pais,trabajadores);
+            }
+        }
+
+        System.out.println(aux);
+
 
     }
 }
