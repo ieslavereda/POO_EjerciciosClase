@@ -1,6 +1,8 @@
 package es.ieslavereda.Cartas;
 
-public class BarajaTAD implements Baraja{
+import java.io.Serializable;
+
+public class BarajaTAD implements Baraja, Serializable {
     private ListaCartas cartas;
 
     public BarajaTAD() {

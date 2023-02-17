@@ -1,10 +1,11 @@
 package es.ieslavereda.Cartas;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class ListaCartas {
+public class ListaCartas implements Serializable {
 
     private int size;
     private Node head;
@@ -69,7 +70,7 @@ public class ListaCartas {
         return "{ size: "+size +", Values: " +((head==null)?"}":head);
     }
 
-    private class Node {
+    private class Node implements Serializable{
         private Carta info;
         private Node next;
 

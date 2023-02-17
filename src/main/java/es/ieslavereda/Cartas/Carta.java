@@ -1,8 +1,9 @@
 package es.ieslavereda.Cartas;
 
+import java.io.Serializable;
 import java.util.Comparator;
 
-public class Carta implements Comparable<Carta>{
+public class Carta implements Serializable,Comparable<Carta>{
 
     public static Comparator<Carta> comparatorPorPalo = new Comparator<Carta>() {
         @Override
