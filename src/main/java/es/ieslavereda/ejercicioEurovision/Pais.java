@@ -68,6 +68,14 @@ public class Pais implements Comparable<Pais>{
         return nombre.compareToIgnoreCase(o.nombre);
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getCantante() {
+        return cantante;
+    }
+
     @Override
     public String toString(){
         return nombre + ", Puntucion: " + obtenerPuntuacion() +"\n";

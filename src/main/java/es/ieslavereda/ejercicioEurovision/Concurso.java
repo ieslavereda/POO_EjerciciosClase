@@ -1,6 +1,7 @@
 package es.ieslavereda.ejercicioEurovision;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Concurso {
 
@@ -31,6 +32,9 @@ public class Concurso {
     }
 
     private void rellenarPaises() {
+
+        // "España;Paloma".split(";")[0] -> "España"
+        // "España;Paloma".split(";")[1] -> "Paloma"
         for(String[] dato : datos)
             paises.add(new Pais(dato[0],dato[1]));
     }
@@ -48,13 +52,61 @@ public class Concurso {
             }
         }
     }
-
     public List<Pais> obtenerListadoPaisesPuntuacion(){
-        List<Pais> paisList = new ArrayList<>(paises);
 
-        paisList.sort(Comparator.comparingInt(Pais::obtenerPuntuacion));
+        List<Pais> aux = new ArrayList<>(paises);
+        aux.sort(new Comparator<Pais>() {
+            @Override
+            public int compare(Pais o1, Pais o2) {
+                return o1.obtenerPuntuacion()-o2.obtenerPuntuacion();
+            }
+        });
+        return aux;
 
-        return paisList;
+
+//        return paises.stream()
+//                    .sorted(Comparator.comparingInt(Pais::obtenerPuntuacion).reversed())
+//                    .collect(Collectors.toList());
+    }
+
+//    public List<Pais> obtenerListadoPaisesPuntuacion(){
+//        List<Pais> paisList = new ArrayList<>(paises);
+//
+//        paisList.sort(Comparator.comparingInt(Pais::obtenerPuntuacion).reversed());
+//
+//        return paisList;
+//    }
+    public List<Pais> obtenerListadoPaisesAlfabeticamente(){
+        return paises.stream()
+                .sorted()
+                .collect(Collectors.toList());
+    }
+    public Map<Pais,Map<Integer,Pais>> obtenerListadoPaisesPuntEmitidas(){
+        Map<Pais,Map<Integer,Pais>> aux = new TreeMap<>(
+                (p1,p2)->p2.obtenerPuntuacion()-p1.obtenerPuntuacion()
+            );
+
+        for(Pais p : paises)
+            aux.put(p,p.devolverVotos());
+
+        return aux;
+    }
+
+//    public List<String> obtenerListadoCantantesAlfabeticamente(){
+//        return paises.stream()
+//                .map((p)->p.getCantante())
+//                .sorted()
+//                .collect(Collectors.toList());
+//    }
+    public List<String> obtenerListadoCantantesAlfabeticamente() {
+        List<String> cantantes = new ArrayList<>();
+        for(Pais p : paises)
+            cantantes.add(p.getCantante());
+
+//        Collections.sort(cantantes);
+//        cantantes.sort((n1,n2)->n1.compareTo(n2));
+        cantantes.sort(String::compareTo);
+        return cantantes;
     }
 
     @Override
