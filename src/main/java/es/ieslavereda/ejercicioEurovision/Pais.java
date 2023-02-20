@@ -70,7 +70,6 @@ public class Pais implements Comparable<Pais>{
 
     @Override
     public String toString(){
-        return nombre + "\n"+
-                "Puntucion: " + obtenerPuntuacion();
+        return nombre + ", Puntucion: " + obtenerPuntuacion() +"\n";
     }
 }

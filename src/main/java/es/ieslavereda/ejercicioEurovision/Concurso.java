@@ -1,8 +1,6 @@
 package es.ieslavereda.ejercicioEurovision;
 
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 public class Concurso {
 
@@ -51,10 +49,18 @@ public class Concurso {
         }
     }
 
+    public List<Pais> obtenerListadoPaisesPuntuacion(){
+        List<Pais> paisList = new ArrayList<>(paises);
+
+        paisList.sort(Comparator.comparingInt(Pais::obtenerPuntuacion));
+
+        return paisList;
+    }
+
     @Override
     public String toString() {
         return "Concurso{\n" +
-                "paises=" + paises +
+                "paises=\n" + paises +
                 '}';
     }
 }
