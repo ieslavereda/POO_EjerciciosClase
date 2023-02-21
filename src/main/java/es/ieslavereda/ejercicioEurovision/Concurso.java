@@ -1,38 +1,15 @@
 package es.ieslavereda.ejercicioEurovision;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class Concurso {
 
-//    private static final String[][] datos = {
-//            {"España", "Blanca Paloma"},
-//            {"Alemania", "SubenStruhenBajem"},
-//            {"Francia", "La Zarra"},
-//            {"Italia", "Marco Mengoni"},
-//            {"Reino Unido", "Los Brexit"},
-//            {"Ucrania", "Tvorchi"},
-//            {"Azerbaiyan", "Nombre Impronunciable"},
-//            {"Croacia", "Let 3"},
-//            {"Finlandia", "Uno cualquiera"},
-//            {"Irlada", "Wild Youth"},
-//            {"Israel", "Noa kirel"},
-//            {"Letonia", "Sudden Lights"},
-//            {"Malta", "The Buster"},
-//            {"Noruega", "Alessandra"},
-//            {"Albania", "Albina Kelmendi"},
-//            {"Armenia","Brunette"}
-//    };
-
     private Set<Pais> paises;
 
     public Concurso() {
         paises = new TreeSet<>();
-
     }
 
     public void rellenarPaises(String path) {
@@ -50,9 +27,7 @@ public class Concurso {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
-
     public void votar(){
         for(Pais p : paises){
             p.votar(paises);
@@ -90,6 +65,25 @@ public class Concurso {
 //
 //        return paisList;
 //    }
+    public void imprimirListadoPaisesAlfabeticamente(String path){
+        imprimir(obtenerListadoPaisesAlfabeticamente(),path,"Listado de paises alfabeticamente");
+    }
+    private void imprimir(List<Pais> paises,String path,String cabecera){
+
+        try (PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(path)))){
+
+            pw.println(cabecera);
+            pw.println("---------------------");
+            for(Pais p : paises)
+                pw.println(p.getNombre());
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+
     public List<Pais> obtenerListadoPaisesAlfabeticamente(){
         return paises.stream()
                 .sorted()
