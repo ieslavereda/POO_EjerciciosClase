@@ -7,18 +7,13 @@ public class App {
         Concurso c = new Concurso();
         c.rellenarPaises("/home/jalonso/informacion.txt");
         c.votar();
-        c.imprimirListadoPaisesAlfabeticamente("listadoPaisesAlfabeticamente.txt");
-        c.imprimirListadoPaisesPuntuacion("listadoPaisesPuntuacion.txt");
+        c.save("concurso");
+        //c.imprimirListadoPaisesAlfabeticamente("listadoPaisesAlfabeticamente.txt");
+        //c.imprimirListadoPaisesPuntuacion("listadoPaisesPuntuacion.txt");
+        c.imprimirListadoPaisesPuntEmitidas("listadoPaisesPuntuacionVotosEmitidos.txt");
 
-//        Map<Pais,Map<Integer,Pais>> aux = c.obtenerListadoPaisesPuntEmitidas();
-//        for(Pais p : aux.keySet()){
-//            System.out.println(p);
-//            Map<Integer,Pais> votos = aux.get(p);
-//            for(Integer i : votos.keySet())
-//                System.out.print(i + " -> " + votos.get(i).getNombre() +", ");
-//            System.out.println();
-//        }
-
+        Concurso c2 = new Concurso("concurso");
+        c2.imprimirListadoPaisesPuntEmitidas("listadoPaisesPuntuacionVotosEmitidos2.txt");
 
     }
 }
