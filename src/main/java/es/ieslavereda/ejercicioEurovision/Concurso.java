@@ -1,42 +1,56 @@
 package es.ieslavereda.ejercicioEurovision;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class Concurso {
 
-    private static final String[][] datos = {
-            {"España", "Blanca Paloma"},
-            {"Alemania", "SubenStruhenBajem"},
-            {"Francia", "La Zarra"},
-            {"Italia", "Marco Mengoni"},
-            {"Reino Unido", "Los Brexit"},
-            {"Ucrania", "Tvorchi"},
-            {"Azerbaiyan", "Nombre Impronunciable"},
-            {"Croacia", "Let 3"},
-            {"Finlandia", "Uno cualquiera"},
-            {"Irlada", "Wild Youth"},
-            {"Israel", "Noa kirel"},
-            {"Letonia", "Sudden Lights"},
-            {"Malta", "The Buster"},
-            {"Noruega", "Alessandra"},
-            {"Albania", "Albina Kelmendi"},
-            {"Armenia","Brunette"}
-    };
+//    private static final String[][] datos = {
+//            {"España", "Blanca Paloma"},
+//            {"Alemania", "SubenStruhenBajem"},
+//            {"Francia", "La Zarra"},
+//            {"Italia", "Marco Mengoni"},
+//            {"Reino Unido", "Los Brexit"},
+//            {"Ucrania", "Tvorchi"},
+//            {"Azerbaiyan", "Nombre Impronunciable"},
+//            {"Croacia", "Let 3"},
+//            {"Finlandia", "Uno cualquiera"},
+//            {"Irlada", "Wild Youth"},
+//            {"Israel", "Noa kirel"},
+//            {"Letonia", "Sudden Lights"},
+//            {"Malta", "The Buster"},
+//            {"Noruega", "Alessandra"},
+//            {"Albania", "Albina Kelmendi"},
+//            {"Armenia","Brunette"}
+//    };
 
     private Set<Pais> paises;
 
     public Concurso() {
         paises = new TreeSet<>();
-        rellenarPaises();
+
     }
 
-    private void rellenarPaises() {
+    public void rellenarPaises(String path) {
 
-        // "España;Paloma".split(";")[0] -> "España"
-        // "España;Paloma".split(";")[1] -> "Paloma"
-        for(String[] dato : datos)
-            paises.add(new Pais(dato[0],dato[1]));
+        try (BufferedReader br = new BufferedReader(new FileReader(path))){
+
+            String linea = "";
+            while((linea=br.readLine())!=null){
+                // "España;Paloma".split(";")[0] -> "España"
+                // "España;Paloma".split(";")[1] -> "Paloma"
+                paises.add(new Pais(linea.split(";")[0],linea.split(";")[1]));
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     public void votar(){

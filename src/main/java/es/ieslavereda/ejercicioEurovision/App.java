@@ -5,6 +5,7 @@ import java.util.Map;
 public class App {
     public static void main(String[] args) {
         Concurso c = new Concurso();
+        c.rellenarPaises("/home/jalonso/informacion.txt");
         c.votar();
 
         Map<Pais,Map<Integer,Pais>> aux = c.obtenerListadoPaisesPuntEmitidas();
