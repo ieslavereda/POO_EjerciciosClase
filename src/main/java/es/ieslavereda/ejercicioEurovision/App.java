@@ -8,7 +8,7 @@ public class App {
         c.rellenarPaises("/home/jalonso/informacion.txt");
         c.votar();
         c.imprimirListadoPaisesAlfabeticamente("listadoPaisesAlfabeticamente.txt");
-
+        c.imprimirListadoPaisesPuntuacion("listadoPaisesPuntuacion.txt");
 
 //        Map<Pais,Map<Integer,Pais>> aux = c.obtenerListadoPaisesPuntEmitidas();
 //        for(Pais p : aux.keySet()){

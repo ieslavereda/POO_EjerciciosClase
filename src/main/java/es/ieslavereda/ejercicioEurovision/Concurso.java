@@ -68,6 +68,9 @@ public class Concurso {
     public void imprimirListadoPaisesAlfabeticamente(String path){
         imprimir(obtenerListadoPaisesAlfabeticamente(),path,"Listado de paises alfabeticamente");
     }
+    public void imprimirListadoPaisesPuntuacion(String path){
+        imprimir(obtenerListadoPaisesPuntuacion(),path,"Listado de paises puntuacion");
+    }
     private void imprimir(List<Pais> paises,String path,String cabecera){
 
         try (PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(path)))){
@@ -75,10 +78,10 @@ public class Concurso {
             pw.println(cabecera);
             pw.println("---------------------");
             for(Pais p : paises)
-                pw.println(p.getNombre());
+                pw.println(p.getNombre() + " -> "+ p.obtenerPuntuacion());
 
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
 
     }
